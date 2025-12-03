@@ -37,5 +37,15 @@ public class Main {
         System.out.println();
         dataManager.updateShipperNumber(phone, selected, dataSource);
 
+        System.out.print("\nSelect a shipper (by their id) to delete (not 1,2, or 3)");
+        selected = Integer.parseInt(scanner.nextLine());
+        boolean isValid = false;
+        while(!isValid){
+            System.out.print("\nSelect a shipper (by their id) to delete (not 1,2, or 3)");
+            selected = Integer.parseInt(scanner.nextLine());
+            isValid = dataManager.deleteShipper(selected, dataSource);
+            System.out.println();
+        }
+
     }
 }

@@ -57,14 +57,35 @@ public class DataManager {
             PreparedStatement preparedStatement = connection.prepareStatement(
                     "update shippers set Phone = ? where ShipperID = ?;"
             );
-
             preparedStatement.setString(1, phone);
             preparedStatement.setInt(2, index);
             preparedStatement.executeUpdate();
             displayAllShippers(dataSource);
-
+            System.out.println();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public boolean deleteShipper(int index, MysqlDataSource dataSource) {
+
+        if(index > 3){
+            try (
+                    Connection connection = dataSource.getConnection()) {
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "update shippers set Phone = ? where ShipperID = ?;"
+                );
+                preparedStatement.setInt(1, index);
+                preparedStatement.executeUpdate();
+                displayAllShippers(dataSource);
+                System.out.println();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            displayAllShippers(dataSource);
+            return true;
+        } else {
+            return false;
         }
     }
 }
