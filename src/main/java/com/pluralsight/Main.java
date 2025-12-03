@@ -19,7 +19,7 @@ public class Main {
         System.out.println("Input the following shipper data:");
         System.out.print("Shipper Name: ");
         String name = scanner.nextLine();
-        System.out.println("Shipper phone number: ");
+        System.out.print("Shipper phone number: ");
         String number = scanner.nextLine();
         dataManager.insertNewShipper(name, number, dataSource);
 

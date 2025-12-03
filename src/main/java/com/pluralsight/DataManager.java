@@ -16,12 +16,10 @@ public class DataManager {
         ) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, phone);
-            int rows = preparedStatement.executeUpdate();
-            try(ResultSet keys = preparedStatement.getGeneratedKeys()) {
-                while(keys.next()) {
-                    System.out.println("Added shipper: " + name + " " + phone);
-                }
-            }
+            preparedStatement.executeUpdate();
+
+            System.out.println("Added shipper: " + name + " " + phone);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
